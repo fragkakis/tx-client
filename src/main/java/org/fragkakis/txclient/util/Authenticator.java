@@ -8,9 +8,9 @@ import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 
 /**
- * JaxRS authenticator blatantly copied from <a href="https://github.com/AdamBien/e2ftp">Adam Bien's e2ftp</a>.
+ * JaxRS authenticator blatantly copied from <a href="http://www.adam-bien.com/roller/abien/entry/client_side_http_basic_access">Adam Bien's e2ftp</a>.
  *
- * For license and copyright <a href="http://www.adam-bien.com/roller/abien/entry/client_side_http_basic_access">see here</a>.
+ * For license and copyright <a href="https://github.com/AdamBien/e2ftp">see here</a>.
  *
  */
 public class Authenticator implements ClientRequestFilter {
