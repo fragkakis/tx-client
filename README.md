@@ -1,7 +1,7 @@
 tx-client
 =========
 
-This project is a Java client of the RESTful API of [Transifex](www.transifex.com).
+This project is a Java client of the RESTful API of [Transifex](https://www.transifex.com/).
 
 The API is described [here](http://docs.transifex.com/developer/api/).
 
