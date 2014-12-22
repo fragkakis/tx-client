@@ -1,11 +1,11 @@
 package org.fragkakis.txclient.util;
 
-import java.io.IOException;
-import java.io.UnsupportedEncodingException;
 import javax.ws.rs.client.ClientRequestContext;
 import javax.ws.rs.client.ClientRequestFilter;
 import javax.ws.rs.core.MultivaluedMap;
 import javax.xml.bind.DatatypeConverter;
+import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 
 public class Authenticator implements ClientRequestFilter {
 

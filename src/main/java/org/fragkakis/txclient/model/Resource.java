@@ -16,11 +16,8 @@ package org.fragkakis.txclient.model;
  * limitations under the License.
  */
 
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
-//@JsonIgnoreProperties(ignoreUnknown = true)
 public class Resource {
 
     private String slug;
