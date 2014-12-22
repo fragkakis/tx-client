@@ -11,10 +11,10 @@ Implementation
 --------------
 
 The client uses JaxRS 2.0 annotations, so this is the only compile-time dependency.
-In order for it to run, a JaxRS 2.0 implementation needs to be in the classpath.
+In order for it to run, a JaxRS 2.0 implementation and a JSON serializer need to be in the classpath.
 
 The project is built with Maven and uses TestNG to run the unit tests.
-In order to run the tests, RestEasy is added as test-time dependency.
+In order to run the tests, RestEasy and Jackson are added as test-time dependencies.
 
 Copyright and license
 ---------------------
