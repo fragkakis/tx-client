@@ -66,7 +66,7 @@ public class ResourcesClientTest {
     }
 
     @Test
-    public void createTest() {
+    public void createResourceTest() {
 
         long time = new Date().getTime();
 
@@ -80,7 +80,7 @@ public class ResourcesClientTest {
     }
 
     @Test
-    public void getResource() {
+    public void getResourceTest() {
 
         Resource resource = resourcesClient.getResource("proj1", "testresource", "");
         assertEquals(resource.getI18n_type(), "TXT");
@@ -101,7 +101,7 @@ public class ResourcesClientTest {
     }
 
     @Test
-    public void updateTest() {
+    public void updateResourceTest() {
         String slug = "testresource";
         String updatedSlug = "testresource_upd";
 
@@ -120,7 +120,7 @@ public class ResourcesClientTest {
     }
 
     @Test
-    public void deleteTest() {
+    public void deleteResourceTest() {
 
         long time = new Date().getTime();
 
