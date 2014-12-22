@@ -7,6 +7,12 @@ import javax.xml.bind.DatatypeConverter;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 
+/**
+ * JaxRS authenticator blatantly copied from <a href="https://github.com/AdamBien/e2ftp">Adam Bien's e2ftp</a>.
+ *
+ * For license and copyright <a href="https://github.com/AdamBien/e2ftp/blob/4e9d1ddc6b5935c96506ad86ea55419d84d2b312/ftpserver-st/src/test/java/org/eftp/ftpserver/business/Authenticator.java">see here</a>.
+ *
+ */
 public class Authenticator implements ClientRequestFilter {
 
     private final String user;
