@@ -17,7 +17,6 @@ package org.fragkakis.txclient.services;
  */
 
 
-import org.codehaus.jackson.jaxrs.JacksonJsonProvider;
 import org.fragkakis.txclient.model.Resource;
 import org.fragkakis.txclient.util.Authenticator;
 import org.jboss.resteasy.client.jaxrs.ResteasyClient;
@@ -27,9 +26,12 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
+import java.util.Properties;
 
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
@@ -66,15 +68,23 @@ public class ResourcesClientTest {
     }
 
     @Test
-    public void createResourceTest() {
+    public void createResourceTest() throws IOException {
 
         long time = new Date().getTime();
 
         Resource resource = new Resource();
-        resource.setI18n_type("TXT");
+        resource.setI18n_type("PROPERTIES");
         resource.setSlug("testresource" + time);
         resource.setName("testresource" + time);
-        resource.setContent("This is the content");
+
+        Properties properties = new Properties();
+        properties.put("11111", "This is a Unicode string (*(*@#$ με ελληνικούς χαρακτήρες");
+        properties.put("22222", "This is another Unicode string (*(*@#$ με ελληνικούς χαρακτήρες");
+
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        properties.store(baos, null);
+
+        resource.setContent(baos.toString());
 
         resourcesClient.create("proj1", resource);
     }
