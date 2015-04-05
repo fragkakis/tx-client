@@ -26,10 +26,12 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+import javax.ws.rs.NotFoundException;
 import java.util.Date;
 import java.util.List;
 
 import static org.testng.Assert.assertNotNull;
+import static org.testng.Assert.assertNull;
 import static org.testng.Assert.assertTrue;
 
 public class ProjectsClientTest {
@@ -81,6 +83,12 @@ public class ProjectsClientTest {
 
         Project project = projectsClient.getProject("proj1", "");
         assertNotNull(project);
+    }
+
+    @Test(expectedExceptions = NotFoundException.class)
+    public void getProjectNotExistsTest() {
+
+        Project project = projectsClient.getProject("thisDoesNotExist" + new Date().getTime(), "");
     }
 
 
