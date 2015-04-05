@@ -18,9 +18,7 @@ package org.fragkakis.txclient.services;
 
 import org.fragkakis.txclient.model.Project;
 
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
+import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import java.util.List;
 
@@ -30,5 +28,15 @@ public interface ProjectsClient {
     @Path("projects")
     @Produces(MediaType.APPLICATION_JSON)
     List<Project> getProjects();
+
+    @POST
+    @Path("projects")
+    @Consumes(MediaType.APPLICATION_JSON)
+    void createProject(Project project);
+
+    @GET
+    @Path("project/{slug}")
+    @Produces(MediaType.APPLICATION_JSON)
+    Project getProject(@PathParam("slug") String slug, @QueryParam("details") String details);
 
 }

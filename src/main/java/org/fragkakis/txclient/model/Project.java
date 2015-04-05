@@ -16,12 +16,17 @@ package org.fragkakis.txclient.model;
  * limitations under the License.
  */
 
+import org.codehaus.jackson.annotate.JsonProperty;
+
 public class Project {
 
     private String slug;
     private String name;
     private String description;
     private String source_language_code;
+    private String repository_url;
+    @JsonProperty("private")
+    private boolean privateProject;
 
     public String getSlug() {
         return slug;
@@ -53,5 +58,21 @@ public class Project {
 
     public void setSource_language_code(String source_language_code) {
         this.source_language_code = source_language_code;
+    }
+
+    public String getRepository_url() {
+        return repository_url;
+    }
+
+    public void setRepository_url(String repository_url) {
+        this.repository_url = repository_url;
+    }
+
+    public boolean isPrivateProject() {
+        return privateProject;
+    }
+
+    public void setPrivateProject(boolean privateProject) {
+        this.privateProject = privateProject;
     }
 }

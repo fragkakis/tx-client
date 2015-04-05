@@ -26,9 +26,10 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+import java.util.Date;
 import java.util.List;
 
-import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertNotNull;
 import static org.testng.Assert.assertTrue;
 
 public class ProjectsClientTest {
@@ -56,10 +57,31 @@ public class ProjectsClientTest {
     }
 
     @Test
-    public void getResourcesTest() {
+    public void getProjectsTest() {
 
         List<Project> projects = projectsClient.getProjects();
         assertTrue(projects.size() > 0);
     }
+
+    @Test
+    public void createProjectTest() {
+        Project project = new Project();
+        String now = "" + new Date().getTime();
+        project.setName("testProject" + now);
+        project.setSlug("testProject" + now);
+        project.setDescription("blah");
+        project.setPrivateProject(false);
+        project.setRepository_url("https://github.com/fragkakis/tx-client");
+        project.setSource_language_code("en");
+        projectsClient.createProject(project);
+    }
+
+    @Test
+    public void getProjectTest() {
+
+        Project project = projectsClient.getProject("proj1", "");
+        assertNotNull(project);
+    }
+
 
 }
